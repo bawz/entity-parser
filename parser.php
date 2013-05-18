@@ -1,6 +1,6 @@
-class Utils {
+class Entity_Parser {
 
-  const REGEX_USERNAME = '/(@[a-zA-Z0-9_]+)/';
+	const REGEX_USERNAME = '/(@[a-zA-Z0-9_]+)/';
 	const REGEX_HASHTAG = '/(#[a-zA-Z][a-zA-Z0-9]+)/';
 	const REGEX_URL = '/((https?:\/\/)?([a-zA-Z0-9][a-zA-Z0-9-\.]+)(\.[a-zA-Z]{2,3})(\/.+)?)/';
 
