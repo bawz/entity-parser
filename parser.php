@@ -23,7 +23,7 @@ class Entity_Parser {
 	protected static function _parseHTML($text, $links = true) {
 		$text = preg_replace_callback(self::REGEX_USERNAME, function ($matches) use($links) {
 			$username = str_replace('@', '', array_shift($matches));
-			$user = Users::find($username);
+			$user = Users::getWithUsername($username);
 			if (!is_object($user)) return $username . ' -bad';
 			$id = $user->id;
 			if ($links) {
@@ -57,7 +57,7 @@ class Entity_Parser {
 		$ext['mentions'] = array();
 		foreach ($matches as $i => $m) {
 			$name = str_replace('@', '', $m);
-			$user = Users::find($name);
+			$user = Users::getWithUsername($name);
 			if (!is_object($user)) continue;
 			$ext['mentions'][] = array(
 				'name' => $name,
